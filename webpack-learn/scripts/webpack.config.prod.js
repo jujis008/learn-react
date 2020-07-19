@@ -6,6 +6,7 @@ const CopyPlugin = require('copy-webpack-plugin');
 
 // 没有babel转换不能export default
 module.exports = {
+  mode: 'production',
   //单个入口
   // entry: './src/index.js',
   // 多个入口
@@ -61,7 +62,18 @@ module.exports = {
           },
         },
       ],
-    }]
+    },
+    {
+      test: /\.m?js$/,
+      exclude: /(node_modules|bower_components)/,
+      use: {
+        loader: 'babel-loader',
+        options: {
+          presets: ['@babel/preset-env']
+        }
+      }
+    }
+  ]
   },
   plugins: [
     new HtmlWebpackPlugin({
