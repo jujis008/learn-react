@@ -4,10 +4,14 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
+const app = new App({desc: '类组件是继承自React.Component'}).render();
+
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  // <React.StrictMode>
+  //   <App title="React 16.14"/>
+  // </React.StrictMode>,
+  // <App desc='类组件是继承自React.Component'/>,
+  app,
   document.getElementById('root')
 );
 
